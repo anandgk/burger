@@ -4,7 +4,6 @@ var burger = require("../models/burger.js");
 
 router.get('/', function(req, res)  {
   res.redirect('/burgers');
-
 });
 
 router.get('/burgers', function(req, res) {
@@ -23,14 +22,15 @@ router.post('/burgers/create', function(req, res) {
 
 });
 
-route.put('/burgers/update/devour/:id', function(req, res)  {
+router.put('/burgers/update/devour/:burgerID', function(req, res)  {
 
-  burger.updateOne('devoured', req.parms.id, function() {
+  burger.updateOne('devoured', req.parms.burgerID, function() {
     res.redirect('/burgers');
   });
+
 });
 
-route.use(function(req, res)  {
+router.use(function(req, res)  {
   res.redirect('/burgers');
 })
 
