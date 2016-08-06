@@ -9,15 +9,15 @@ var orm = {
       });
     },
 
-    insertOne : function(tableName, columnName, burgerName, callback) {
-      dbconnection.query("insert into " + tableName + " (" + columnName + ") values (?)", [burgerName], function(err, data) {
+    insertOne : function(tableName, burgerName, burgerDevoured, callback) {
+      dbconnection.query("insert into " + tableName + " (burger_name, devoured) values (?, ?)", [burgerName, burgerDevoured], function(err, data) {
         if (err) throw err;
         callback(data);
       });
     },
 
-    updateOne : function(tableName, columnName, burgerID, callback) {
-      dbconnection.query("update" + tableName + "set " + columnName + " = 1 where id = " + burgerID, function(err, data)  {
+    updateOne : function(tableName, burgerID, callback) {
+      dbconnection.query("update " + tableName + " set devoured = 1 where id = " + burgerID, function(err, data)  {
         if (err) throw err;
         callback(data);
       });

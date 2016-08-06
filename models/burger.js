@@ -8,14 +8,14 @@ var model = {
     });
   },
 
-  insertOne : function(columnName, burgerName, callback)  {
-    orm.insertOne("burgers", columnName, burgerName, function(data) {
+  insertOne : function(burgerName, burgerDevoured, callback)  {
+    orm.insertOne("burgers", burgerName, burgerDevoured, function(data) {
       callback(data);
     });
   },
 
-  updateOne : function(columnName, burgerID, callback)  {
-    orm.updateOne("burgers", columnName, burgerID, function(data) {
+  updateOne : function(burgerID, callback)  {
+    orm.updateOne("burgers", burgerID, function(data) {
       callback(data);
     });
   }
